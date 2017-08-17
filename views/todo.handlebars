@@ -1,0 +1,24 @@
+
+<form action="/" method="post">
+    <input type="text" name="create" placeholder="Input task">
+</form>
+<h3>Todo:</h3>
+<ul>
+<form action="/complete" method="post">
+{{#each entries}}
+{{#unless v}}
+    <li>
+        <button formmethod="post" formaction="/complete" type="submit" name="entry" value="{{k}}">Mark as complete</button>  {{k}}
+    </li>
+{{/unless}}
+{{/each}}
+</form>
+</ul>
+<h3>Complete</h3>
+<ul>
+{{#each entries}}
+{{#if v}}
+    <li>{{k}}</li>
+{{/if}}
+{{/each}}
+</ul>
