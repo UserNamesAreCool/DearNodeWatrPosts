@@ -9,12 +9,11 @@ app.use(bp.urlencoded({extended: true}));
 function KV(obj) {
     return Object.entries(obj).map((e) => e.reduce((k,v) => ({k:k, v:v})))
 }
-
+// WIll be populated on POST: /create
+// Key: Task name [str]
+// Value: Completed or not [bool]
 let data = {
-    'testing': false,
-    'submit': false,
-    'come up with a crazy idea': true
-} // WIll be populated on POST: /create
+} 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
